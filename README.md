@@ -12,3 +12,5 @@ The Ryvo repository currently retains its Android application and includes start
 ## Website
 
 This is a static HTML page. Open `index.html` in a browser or deploy the repository with a static hosting provider. Tailwind CSS and fonts are loaded from external CDNs.
+
+The page links to `sitemap.xml` and `robots.txt` for `www.orileyplatforms.com`. The sitemap lists the home page only; section fragments are in-page navigation, not separate sitemap pages. Contact channels and legal policy links are intentionally shown as unavailable until verified details are supplied.
