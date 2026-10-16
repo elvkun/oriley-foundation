@@ -7,6 +7,8 @@ The O’Riley Foundation website describes the parent company behind Flow.
 - **O’Riley Foundation** is the parent company.
 - **Flow** is a cross-platform product direction spanning native Android, native iPhone and iPad, and web clients intended to connect through shared services. Its repository is [`ryvo-hardened`](https://github.com/elvkun/ryvo-hardened). The marketing site in the legacy-named ZimLive repository now uses the Flow product name.
 
+The Flow repository maintains the shared [product system](https://github.com/elvkun/ryvo-hardened/blob/main/docs/PRODUCT_SYSTEM.md), including the common palette and current feature-status language. Use that reference when describing Flow here.
+
 The Flow repository contains the Android prototype and iOS and web previews. The web preview supports a limited listing flow when its API and Supabase services are configured. Production payments, identity verification, messaging, and AI services are not available.
 
 ## Website
