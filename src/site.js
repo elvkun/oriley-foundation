@@ -1,26 +1,52 @@
 const flowRepository = 'https://github.com/elvkun/ryvo-hardened';
 
+function element(tagName, className, text) {
+  const node = document.createElement(tagName);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+function brandLink(caption, footer = false) {
+  const brand = element('a', footer ? 'brand footer-brand' : 'brand');
+  brand.href = '#top';
+  brand.setAttribute('aria-label', 'O’Riley Foundation home');
+  const mark = element('span', 'brand-mark', 'O');
+  mark.setAttribute('aria-hidden', 'true');
+  const copy = element('span', 'brand-copy');
+  copy.append(element('span', 'brand-name', 'O’Riley Foundation'), element('span', 'brand-caption', caption));
+  brand.append(mark, copy);
+  return brand;
+}
+
 class FoundationHeader extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = `
-      <header class="site-header">
-        <div class="container nav-shell">
-          <a class="brand" href="#top" aria-label="O’Riley Foundation home">
-            <span class="brand-mark" aria-hidden="true">O</span>
-            <span class="brand-copy"><span class="brand-name">O’Riley Foundation</span><span class="brand-caption">PRODUCTS WITH PURPOSE</span></span>
-          </a>
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-            <span class="menu-icon" aria-hidden="true"></span><span class="visually-hidden">Toggle navigation</span>
-          </button>
-          <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
-            <a href="#flow">Flow</a><a href="#focus">Principles</a><a href="#about">About</a>
-            <a class="nav-project-link" href="${flowRepository}" target="_blank" rel="noopener noreferrer">Project <span aria-hidden="true">↗</span></a>
-          </nav>
-        </div>
-      </header>`;
+    const header = element('header', 'site-header');
+    const shell = element('div', 'container nav-shell');
+    const button = element('button', 'menu-toggle');
+    button.type = 'button';
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', 'primary-nav');
+    const icon = element('span', 'menu-icon');
+    icon.setAttribute('aria-hidden', 'true');
+    button.append(icon, element('span', 'visually-hidden', 'Toggle navigation'));
+    const nav = element('nav', 'primary-nav');
+    nav.id = 'primary-nav';
+    nav.setAttribute('aria-label', 'Main navigation');
+    for (const [label, href] of [['Flow', '#flow'], ['Principles', '#focus'], ['About', '#about']]) {
+      const link = element('a', '', label);
+      link.href = href;
+      nav.append(link);
+    }
+    const projectLink = element('a', 'nav-project-link', 'Project ↗');
+    projectLink.href = flowRepository;
+    projectLink.target = '_blank';
+    projectLink.rel = 'noopener noreferrer';
+    nav.append(projectLink);
+    shell.append(brandLink('PRODUCTS WITH PURPOSE'), button, nav);
+    header.append(shell);
+    this.replaceChildren(header);
 
-    const button = this.querySelector('.menu-toggle');
-    const nav = this.querySelector('.primary-nav');
     button?.addEventListener('click', () => {
       const isOpen = button.getAttribute('aria-expanded') === 'true';
       button.setAttribute('aria-expanded', String(!isOpen));
@@ -123,18 +149,19 @@ class FoundationPrinciples extends HTMLElement {
 
 class FoundationFooter extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = `
-      <footer class="site-footer" id="about">
-        <div class="container footer-main">
-          <a class="brand footer-brand" href="#top" aria-label="O’Riley Foundation home">
-            <span class="brand-mark" aria-hidden="true">O</span>
-            <span class="brand-copy"><span class="brand-name">O’Riley Foundation</span><span class="brand-caption">PARENT COMPANY BEHIND FLOW</span></span>
-          </a>
-          <p class="footer-statement">Building thoughtful digital products, one clear step at a time.</p>
-          <a class="footer-link" href="${flowRepository}" target="_blank" rel="noopener noreferrer">Flow on GitHub <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="container footer-meta"><span>© 2026 O’Riley Foundation</span><span>Flow is an early product prototype.</span></div>
-      </footer>`;
+    const footer = element('footer', 'site-footer');
+    footer.id = 'about';
+    const main = element('div', 'container footer-main');
+    const statement = element('p', 'footer-statement', 'Building thoughtful digital products, one clear step at a time.');
+    const project = element('a', 'footer-link', 'Flow on GitHub ↗');
+    project.href = flowRepository;
+    project.target = '_blank';
+    project.rel = 'noopener noreferrer';
+    main.append(brandLink('PARENT COMPANY BEHIND FLOW', true), statement, project);
+    const meta = element('div', 'container footer-meta');
+    meta.append(element('span', '', '© 2026 O’Riley Foundation'), element('span', '', 'Flow is an early product prototype.'));
+    footer.append(main, meta);
+    this.replaceChildren(footer);
   }
 }
 
