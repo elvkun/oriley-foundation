@@ -19,7 +19,7 @@ The page applies a restrictive Content Security Policy for local assets and has 
 
 Source files: `index.html`, `src/site.js`, and `styles/site.css`. Product content is kept in the platform and principles data arrays in `src/site.js`; components create their markup with DOM APIs and use `textContent` for text. Keep visitor-supplied values out of HTML-string insertion and URL attributes.
 
-The page links to `sitemap.xml` and `robots.txt` for `www.orileyplatforms.com`. The sitemap lists the home page only; section fragments are in-page navigation, not separate sitemap pages. No contact channel, privacy policy, or terms destination is published because verified details have not been supplied.
+The page links to `sitemap.xml` and `robots.txt` for `www.orileyplatforms.com`. The sitemap lists the home page only; section fragments are in-page navigation, not separate sitemap pages. The footer links to the Flow Privacy Policy on `zimlive.app`. That notice covers Flow product surfaces and clearly identifies the operator/contact and jurisdiction details still requiring confirmation; it is not a privacy policy for any separate Foundation services.
 
 ## Security maintenance
 

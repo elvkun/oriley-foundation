@@ -167,6 +167,9 @@ class FoundationFooter extends HTMLElement {
     main.append(brandLink('PARENT COMPANY BEHIND FLOW', true), statement, project);
     const meta = element('div', 'container footer-meta');
     meta.append(element('span', '', '© 2026 O’Riley Foundation'), element('span', '', 'Flow features vary by platform and configured services.'));
+    const privacy = element('a', 'footer-link', 'Flow Privacy Policy');
+    privacy.href = 'https://zimlive.app/privacy-policy.html';
+    meta.append(privacy);
     footer.append(main, meta);
     this.replaceChildren(footer);
   }
