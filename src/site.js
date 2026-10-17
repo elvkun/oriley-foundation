@@ -1,4 +1,5 @@
 const flowRepository = 'https://github.com/elvkun/ryvo-hardened';
+const flowWebApp = 'https://zimlive-app-offocial-webiste.vercel.app/';
 
 function element(tagName, className, text) {
   const node = document.createElement(tagName);
@@ -64,21 +65,21 @@ class FlowPlatforms extends HTMLElement {
     const platforms = [
       {
         name: 'Android',
-        status: 'Prototype',
+        status: 'Local app',
         symbol: 'A',
-        detail: 'The most complete client today: a native demonstration app with local sample content, settings, and a device-local app gate.',
+        detail: 'The broadest Flow interface today, with settings and a device-local app gate. Service screens use local demonstration data.',
       },
       {
         name: 'iOS',
-        status: 'Preview',
+        status: 'Introduction',
         symbol: 'i',
-        detail: 'A native SwiftUI introduction to Flow. Account features, persistence, and service integrations are not included.',
+        detail: 'A native SwiftUI introduction to Flow. Shared accounts, data, and service integrations are not available yet.',
       },
       {
         name: 'Web',
-        status: 'Preview',
+        status: 'Browser app',
         symbol: 'W',
-        detail: 'A focused marketplace experience for published listings and private seller drafts when the API and Supabase are configured.',
+        detail: 'Email accounts, profiles, private reports and listing drafts, and published listing discovery when Firebase is configured.',
       },
     ];
     const grid = document.createElement('div');
@@ -116,7 +117,13 @@ class FlowPlatforms extends HTMLElement {
     link.rel = 'noopener noreferrer';
     link.className = 'text-link';
     link.textContent = 'Explore the Flow repository ↗';
-    portfolio.append(note, link);
+    const appLink = document.createElement('a');
+    appLink.href = flowWebApp;
+    appLink.target = '_blank';
+    appLink.rel = 'noopener noreferrer';
+    appLink.className = 'text-link';
+    appLink.textContent = 'Open Flow in your browser ↗';
+    portfolio.append(note, appLink, link);
     this.replaceChildren(grid, portfolio);
   }
 }
@@ -125,7 +132,7 @@ class FoundationPrinciples extends HTMLElement {
   connectedCallback() {
     const principles = [
       ['01', 'Security as a practice', 'Keep credentials and provider secrets on trusted server systems. Review data flows and boundaries before connecting a service.'],
-      ['02', 'Accurate product language', 'Describe a prototype as a prototype. Make clear which screens are local demonstrations and which actions reach a configured service.'],
+    ['02', 'Accurate product language', 'Make clear which screens use local demonstration data and which actions reach a configured service.'],
       ['03', 'Steady, maintainable systems', 'Prefer small, reviewable changes and documented contracts that can be tested and operated responsibly.'],
     ];
     const grid = document.createElement('div');
@@ -159,7 +166,7 @@ class FoundationFooter extends HTMLElement {
     project.rel = 'noopener noreferrer';
     main.append(brandLink('PARENT COMPANY BEHIND FLOW', true), statement, project);
     const meta = element('div', 'container footer-meta');
-    meta.append(element('span', '', '© 2026 O’Riley Foundation'), element('span', '', 'Flow is an early product prototype.'));
+    meta.append(element('span', '', '© 2026 O’Riley Foundation'), element('span', '', 'Flow features vary by platform and configured services.'));
     footer.append(main, meta);
     this.replaceChildren(footer);
   }

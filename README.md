@@ -9,7 +9,7 @@ The O’Riley Foundation website describes the parent company behind Flow.
 
 The Flow repository maintains the shared [product system](https://github.com/elvkun/ryvo-hardened/blob/main/docs/PRODUCT_SYSTEM.md), including the common palette and current feature-status language. Use that reference when describing Flow here.
 
-The Flow repository contains the Android prototype and iOS and web previews. The web preview supports a limited listing flow when its API and Supabase services are configured. Production payments, identity verification, messaging, and AI services are not available.
+The Flow repository contains the Android app, iOS introduction, browser app, and API source. The browser app uses Firebase Auth and Firestore for accounts, profiles, private listing drafts, reports, and published listing discovery when configured. Android service screens use local demonstration data; iOS does not yet connect to shared accounts or services. Payments, identity verification, messaging, and AI services are not available.
 
 ## Website
 
