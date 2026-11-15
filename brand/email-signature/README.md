@@ -7,7 +7,7 @@ The signature includes Elvis Kundiona, the O’Riley Platforms logo with Product
 1. Open signature.html in a web browser with internet access. Copy the rendered signature (Ctrl+A, then Ctrl+C). Do not copy the HTML source code. offline-preview.html is a separate local preview, not the recommended paste source.
 2. Open Gmail > Settings (gear) > See all settings > General > Signature.
 3. Select Create new and name it Elvis — O’Riley Platforms. Click the editor and paste with Ctrl+V.
-4. If the logo is missing, use Gmail’s Insert image button and upload oriley-platforms-logo.png, or use its public URL from signature.html. Choose an appropriate image size and check that it fits the signature.
+4. If the logo is missing, use Gmail’s Insert image button and upload oriley-platforms-logo.png, or use its public URL from signature.html. Keep the displayed logo at approximately 216 × 56 pixels; avoid enlarging it. The signature uses a 16 px name and 13 px website link with compact spacing.
 5. Under Signature defaults, choose this signature for both new emails and replies/forwards. If several Send mail as addresses exist, select the correct business address and repeat for each address that should use it.
 6. Optionally enable insertion before quoted text in replies. Click Save Changes at the bottom.
 7. Compose a new email and a reply to verify the signature and link. Send yourself a test email only when you are ready; no email was sent by this task.
